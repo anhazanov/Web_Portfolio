@@ -8,7 +8,14 @@ import { SectionWrapper } from '../hoc';
 import { slideIn } from '../utils/motion';
 
 const Contact = () => {
-  console.log(process.env.VITE_APP_EMAILJS_PUBLIC_KEY)
+  console.log(import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY)
+  const formRef = useRef()
+  const [form, setForm] = useState({
+    name: '', 
+    email: '',
+    message: '',
+  })
+  const [loading, setLoading] = useState(false)
 
   const handleChange = (e) => {
     const { target } = e;
@@ -27,8 +34,8 @@ const Contact = () => {
 
     emailjs
       .send(
-        process.env.VITE_APP_EMAILJS_SERVICE_ID,
-        process.env.VITE_APP_EMAILJS_TEMPLATE_ID,
+        import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
         {
           from_name: form.name,
           to_name: "Andrii Khazanov",
@@ -36,7 +43,7 @@ const Contact = () => {
           to_email: "anhazanov@gmail.com",
           message: form.message,
         },
-        process.env.VITE_APP_EMAILJS_PUBLIC_KEY,
+        import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY,
       )
       .then(
         () => {
