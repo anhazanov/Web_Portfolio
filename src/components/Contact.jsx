@@ -7,14 +7,8 @@ import { EarthCanvas } from './canvas';
 import { SectionWrapper } from '../hoc';
 import { slideIn } from '../utils/motion';
 
-const Contact = () => {
-  const formRef = useRef()
-  const [form, setForm] = useState({
-    name: '', 
-    email: '',
-    message: '',
-  })
-  const [loading, setLoading] = useState(false)
+const Contact = () => {l
+  console.log(process.env.VITE_APP_EMAILJS_PUBLIC_KEY)
 
   const handleChange = (e) => {
     const { target } = e;
