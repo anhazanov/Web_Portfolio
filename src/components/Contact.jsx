@@ -7,7 +7,7 @@ import { EarthCanvas } from './canvas';
 import { SectionWrapper } from '../hoc';
 import { slideIn } from '../utils/motion';
 
-const Contact = () => {l
+const Contact = () => {
   console.log(process.env.VITE_APP_EMAILJS_PUBLIC_KEY)
 
   const handleChange = (e) => {
